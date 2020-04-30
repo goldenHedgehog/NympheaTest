@@ -1,0 +1,6 @@
+[submodule "nymphea/core"]
+	path = nymphea/core
+	url = https://github.com/Evawi/nymphea.git
+[submodule "nymphea/UI"]
+	path = nymphea/UI
+	url = https://github.com/Evawi/nymphea-UI.git
