@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>Nya TEST</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1050, initial-scale=1.0,  maximum-scale=1">
+        <!--script type="text/javascript" src="/s/js/public/vendor.js"></script-->
+        <!--link rel="stylesheet" href="/s/dist/public/styles.css"-->
+        <link rel="stylesheet" href="s/dist/public/styles.css">
+
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <style>
+            html,body{
+                height:100%;
+                margin: 0;
+                padding: 0;
+            }
+            #page{
+                height :100%;
+            }
+            .main_before_preload{
+                height :100%;
+                background: #FFFFFF;
+                position: relative;
+            }
+            .main_before_preload h1{
+                color:#212121;
+                width:600px;
+                font-size: 90px;
+                font-weight:bold;
+                text-align:center;
+                line-height:100px;
+                font-family: 'Oswald', sans-serif;
+                letter-spacing:4px;
+                position: absolute;
+                top: calc(50% - 55px);
+                left: calc(50% - 300px);
+                margin: 0;
+
+            }
+            .main_before_preload h5{
+                color:#212121;
+                font-size: 40px;
+                position: absolute;
+                font-family: 'Oswald', sans-serif;
+                top:calc(50% + 55px);
+                right: calc(50% - 207px);
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="page" class="sixteen wide main__wrapper">
+        <div class="main_before_preload">
+            <h1>= NYA test =</h1>
+            <h5>loading...</h5>
+        </div>
+    </div>
+    <div id="popup" ></div>
+        <script>
+            window.isDEVELOP = true// [%IF c.dev %]true[%ELSE%]false[%END%];
+            window.user = {
+                id:"monty_test",//"[% c.ai.user.id %]",
+                name:"monty_test",//"[% c.ai.user.name %]"
+            };
+            window.UI_settings = {
+                UI:"Material",
+                Notifer:{type:"Devexpress"},
+                widgets:["Devexpress"]
+
+            };
+            window.project_name = "MONTY_UI";
+            //window.contentType = "application/x-www-form-urlencoded";
+            window.server_url = "/"
+            window.headers = {};
+
+
+            window.UIversion="0.0.0";
+            window.PROJECTversion = "0.0.0"//"[% c.VERSION %]";
+ 
+
+          /* function loadJSON(callback) {
+                var xobj = new XMLHttpRequest();
+                xobj.overrideMimeType("application/json");
+                xobj.open('GET', '/s/dist/package.json?v='+window.UIversion, true);
+                xobj.onreadystatechange = function() {
+                    if (xobj.readyState == 4 && xobj.status == "200") {
+                        callback(xobj.responseText);
+                    }
+                }
+                xobj.send(null);
+            }
+
+
+            loadJSON(function(response) {
+                var version = JSON.parse(response).version;
+                var scripta = document.createElement('script');
+                scripta.src = "/s/dist/public/vendorLogic.v_"+version+".js";
+                document.head.appendChild(scripta);
+                scripta.onload = function() {
+                    var script = document.createElement('script');
+                    script.src = "/s/dist/public/vendorView.v_"+version+".js";
+                    document.head.appendChild(script);
+                    script.onload = function() {
+                        var imported = document.createElement('script');
+                        imported.src = '/s/dist/public/index.v_'+version+'.js';
+                        document.head.appendChild(imported);
+                    }
+                }
+                console.log('[MONTY_UI UI version] ' + window.UIversion );
+                console.log('[MONTY_UI PROJECT version] '+ window.PROJECTversion );
+            })*/
+
+                var version = window.UIversion;
+                var scripta = document.createElement('script');
+                scripta.src = "public/vendorLogic.v_"+version+".js";
+                document.head.appendChild(scripta);
+                scripta.onload = function() {
+                    var script = document.createElement('script');
+                    script.src = "public/vendorView.v_"+version+".js";
+                    document.head.appendChild(script);
+                    script.onload = function() {
+                        var imported = document.createElement('script');
+                        imported.src = 'public/index.v_'+version+'.js';
+                        document.head.appendChild(imported);
+                    }
+                }
+                console.log('[MONTY_UI UI version] ' + window.UIversion );
+                console.log('[MONTY_UI PROJECT version] '+ window.PROJECTversion );
+        </script>
+    </body>
+</html>

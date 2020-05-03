@@ -1,0 +1,415 @@
+@import "UI/src/style/default_style";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap&subset=cyrillic');
+
+@color-p: #1E85FF; //color primary
+@color-pv: #0E40A1; //color primary variant
+@color-s:  #45FFC7; //color secondary
+@color-sv: #06B5A0; //color secondary variant
+
+@element-h:36px;
+
+html, body {
+  .no-ind();
+    height:100%;
+    background-color: @color-sf;
+}
+
+html, body, .ui.button, h1, h2, h3, h4, input, textarea {
+    font-family: "Roboto", sans-serif;
+}
+
+.font() {
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 300;
+    margin: 0;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    text-align: center;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    text-align: center;
+}
+input {
+    font-weight: 400;
+}
+
+.input_styling() {
+    padding: 12px 20px;
+    font-size: 16px;
+    line-height: 16px;
+    height: auto;
+    .border-radius();
+}
+
+.unify_inputs(@shadow:true)  {
+    .input_styling();
+    .shadow();
+}
+
+.input_on_surface() {
+    .input_styling();
+    background-color: transparent;
+    border: fade(@color-on-tbg,15%) 1px solid;
+}
+
+.label() {
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: fade(@color-on-tbg,65%);
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+label, .label {
+    .label();
+}
+
+.handle-style(){ //tooltip & handle styles
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+}
+//0 8px 6px -6px rgba(0, 0, 0, 0.24), 0 8px 6px -6px rgba(0, 0, 0, 0.12)
+input, textarea {&::placeholder {font-style: italic;}}
+.ui.dropdown .default.text {font-style: italic;}
+
+.nymphea_checkbox__field.ui.toggle.checkbox {
+    margin-right: 35px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    label.nymphea_checkbox__label {
+        font-family: "Roboto", sans-serif;
+        color: fade(@color-on-tbg, 50%);
+        text-transform: none;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    label:before {
+        box-shadow: 0px 1px 0px @color-on-tp, inset 0px 0px 3px fade(@color-on-tbg, 35%);
+    }
+
+    input:checked ~ label:before {
+        background: fade(@color-success, 40%) !important;
+        opacity: 0.8;
+    }
+
+    label:after {
+        width: 2.5rem;
+        height: 2.5rem;
+        top: -.5rem;
+        left: -.5rem;
+        .handle-style();
+    }
+
+    input:checked ~ label:after {
+        background: @color-success;
+        left: 1.65rem;
+    }
+}
+
+.nya-column{
+	height:100%;
+	display:inline-block;
+}
+.nya-row{
+	width:100%;
+	display:block;
+}
+.nymphea_dropdown{
+    .nymphea_input__label.left{
+        display: inline-block;
+    }
+    .nymphea_dropdown__field.ui.fluid.dropdown{
+        display: inline-block;
+        width: auto;
+        height: @input-h;
+        .search{
+            height: @input-h;
+        }
+        .icon{
+            line-height:@input-h ;
+            padding: 0;
+        }
+    }
+}
+.shadow() {
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.16);
+}
+
+.border-radius(@param: 4px) {
+    border-radius: @param;
+}
+
+.element(){
+    .shadow();
+    position: relative;
+}
+
+.surface() {
+    .shadow();
+    background-color: @color-sf;
+    .border-radius();
+}
+
+.dx-popup-content{
+    padding: 0;
+}
+
+
+
+    /********  square BTN    *******/
+.square_btn{
+    .mdc-button.gl_btn{
+        height: @element-h;
+        width: @element-h;
+        padding: 0;
+        min-width: 0;
+        .material-icons{
+            font-size: 24px;
+            width: 20px;
+            height: 24px;
+        }
+    }
+}
+
+
+    /********* BIG BY ICON BTN ********/
+.big_icon_btn{
+    .mdc-button.gl_btn{
+        height: auto;
+        .mdc-button__icon{
+            font-size: @input-h;
+            height: auto;
+            width: auto;
+        }
+        &:hover{
+            background-color: transparent;
+            .mdc-button__icon{
+                color:lighten(@color-pv, 20%);
+            }
+        }
+        &:active{
+            background-color: transparent;
+            .mdc-button__icon{
+                color:lighten(@color-pv, 15%);
+            }
+        }
+        &.have_small_icon{
+            .gl_btn_small_icon{
+                .mdc-button__icon{
+                    font-size: 14px;
+                    bottom: 2px;
+                    right: 8px;
+                }
+            }
+        }
+    }
+}
+
+/********* CLOSE BTN ********/
+.close{
+    .mdc-button.gl_btn{
+        .mdc-button__icon{
+            font-size: @input-h;
+            height: auto;
+            width: auto;
+            color:#383838;
+        }
+        &:hover{
+            background-color: transparent;
+            .mdc-button__icon{
+                color:@color-fatal;
+            }
+        }
+        &:active{
+            background-color: transparent;
+            .mdc-button__icon{
+                color:@color-fatal;
+            }
+        }
+    }
+}
+
+/******** INPUT ****************/
+.nymphea_input.ui.input.form{
+    .nymphea_input__field {
+        height: @input-h;
+        background: transparent;
+
+    }
+    .nymphea_input__popup_label {
+        max-height: @input-h;
+    }
+    .nymphea_input__element{
+        background: transparent;
+        border:none;
+        border-bottom:1px solid rgba(0,0,0,.42);
+        color:rgba(0,0,0,.87);
+        height: @input-h - 1px;
+        &:focus{
+            background: rgba(0,0,0,.08);
+            border-bottom:2px solid @color-pv;
+        }
+    }
+    &.have_input_label_top{
+        position:relative;
+        .nymphea_input__label.top{
+            position:absolute;
+            top:@ind-s;
+            left:@ind-m;
+            font-size: 65%;
+        }
+        .nymphea_input__field {
+            height:@input-h;
+        }
+        .nymphea_input__popup_label {
+            max-height: @input-h;
+        }
+        .nymphea_input__element{
+            line-height: @element-h;
+            height: @input-h - 1px;
+            padding-top: @ind-l;
+            padding-bottom: 1px;
+            &:focus{
+                padding-bottom: 0
+            }
+        }
+    }
+
+}
+
+/******** HANDLER CHART BTN **********/
+.ds_chart_handler_btn{
+    .mdc-button{
+        min-width: 0;
+       // padding: 0;
+    }
+    &.small{
+        .gl_btn{
+            border-radius: 18px;
+            //border-color: transparent;
+        }
+        .mdc-button__icon{
+            width:15px
+        }
+    }
+}
+
+/******** DROPDOWN ***********/
+
+.nymphea_dropdown.ui.form{
+
+    .nymphea_dropdown__field{
+        background: transparent;
+        border: none;
+        .text{
+            color: fade(@color-on-tbg,80%);
+        }
+    }
+}
+
+    //TODO
+/******** HEADER POPUP ********/
+
+
+
+///OLD STAT GUIDE
+
+.statusColors(@color) {
+    .status-bar .filled {background-color: @color;}
+    .status-text .status-message {color: @color;}
+}
+
+/* buttons */
+.primary_btn(@bgcolor: @color-p, @textcolor: @color-on-tp) {
+    background-color: @bgcolor;
+    color: @textcolor;
+    font-weight: 300;
+    .border-radius();
+    filter: opacity(100%);
+    padding: 9px 25px 10px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .04em;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
+    .btn_hover (@bgcolor,@textcolor,90%);
+}
+
+.secondary_btn(@pTop: 36px, @pBottom: 35px, @bg: transparent, @text-color: @color-on-tbg, @alpha: .2){
+    padding-top: @pTop;
+    padding-bottom: @pBottom;
+    width: 100%;
+    opacity: @alpha;
+    border: @color-on-tbg 1px dashed;
+    background: @bg;
+    text-align: center;
+    color: @text-color;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    &:hover {background: fade(@color-on-tbg,10%)}
+}
+
+.link_under_button() {
+    margin: 15px 0 0;
+    padding: 0;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: transparent;
+    border-radius: 0;
+    color: fade(@color-on-tbg, 50%);
+}
+
+.btn_hover (@bgcolor: @color-p, @textcolor: @color-on-tp, @fade:60%) {
+    &:hover {
+        .bgcolor_hover(@bgcolor,@fade);
+        color: fade(@textcolor,@fade);
+    }
+}
+
+.bgcolor_hover(@bgcolor,@fade) when not (@bgcolor = transparent) {
+    background-color: fade(@bgcolor,@fade);
+}
+
+.ui.approve.button {
+    font-weight: normal;
+    background-color: @color-p;
+    color: @color-on-tp;
+    .btn_hover();
+}
+
+.ui.cancel.button {
+    font-weight: normal;
+    background-color: transparent;
+}

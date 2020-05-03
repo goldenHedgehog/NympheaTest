@@ -1,0 +1,63 @@
+@import "../../nymphea/default_style";
+.main_view{
+	.main__inner{
+		.header__wrapper{
+
+		}
+		.slector_model__wrapper{
+			height:36px;
+		}
+	}
+}
+.preloader {
+    padding: 50px 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    .catWalking {
+        @size: 160px;
+        width: @size;
+        height: @size;
+        margin-left: calc(~ '50%' - @size/2);
+        background: url("../images/cat.gif");
+        animation-name: walking;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+
+    // cat animation
+    @keyframes walking {
+        0%   { transform: translate(-500px); } // 0 >> from
+        1%   { transform: translate(-500px) rotateY(180deg); }
+        50%  { transform: translate(500px) rotateY(180deg); }
+        51%  { transform: translate(500px); }
+        100% { transform: translate(-500px); } // 100 >> to
+    }
+    .message {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 125%;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 10px;
+        padding: 0 30px;
+    }
+    .submessage {
+        color: fade(@color-on-tbg, 50%);
+        font-size: 14px;
+        line-height: 150%;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 5px;
+        padding: 0 30px;
+    }
+    .btn_stop__wrapper {
+        text-align: center;
+        margin-top: 40px;
+        .nymphea_button__field {
+            .primary_btn();
+        }
+    }
+}
