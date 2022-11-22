@@ -33,7 +33,7 @@
     "webpack": "^4.40.2",
     "webpack-auto-inject-version": "^1.2.2",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "brace": "^0.11.1",
